@@ -40,7 +40,7 @@ class HomeFragment : NucleoFragment<FragmentHomeBinding>() {
     override fun initProcess() {
         homeViewModel.getPosterPopular()
         homeViewModel.getBanner()
-//        posterPopularViewModel.getPosterCoomingSoon()
+        homeViewModel.getPosterCoomingSoon()
     }
 
     override fun initObservers() {
@@ -82,24 +82,24 @@ class HomeFragment : NucleoFragment<FragmentHomeBinding>() {
             }
         })
 
-//        posterPopularViewModel.listPosterCoomingSoon.observe(this, Observer {
-//            when (it) {
-//                is Result.Loading -> {
-//                    showLoading()
-//                }
-//
-//                is Result.Success -> {
-//                    hideLoading()
-//                    binding.layoutCoomingSoon.setMovie(it.data)
-//                }
-//
-//                is Result.Failure -> {
-//                    hideLoading()
-//                    showToast(it.message.toString())
-//                }
-//                else -> {}
-//            }
-//        })
+        homeViewModel.listPosterCoomingSoon.observe(this, Observer {
+            when (it) {
+                is Result.Loading -> {
+                    showLoading()
+                }
+
+                is Result.Success -> {
+                    hideLoading()
+                    binding.layoutCoomingSoon.setMovie(it.data)
+                }
+
+                is Result.Failure -> {
+                    hideLoading()
+                    showToast(it.message.toString())
+                }
+                else -> {}
+            }
+        })
     }
 
     private fun setBanner(banner : List<String>){

@@ -52,10 +52,10 @@ class MovieInteractor (private val repository: MovieRepository) : MovieUseCase {
         }
     }
 
-    override fun searchMovie(expression: String): Single<List<SearchDetail>> {
+    override fun searchMovie(expression: String): Single<List<MostPopularDetail>> {
         return repository.search(expression).map {
             it.results?.map { data ->
-                data.mapToSearchDetail()
+                data.mapToMostPopularDetail()
             }
         }
     }

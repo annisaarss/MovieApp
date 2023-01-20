@@ -15,7 +15,7 @@ interface MovieApiClient {
     fun getMostPopular(
         @Path("apiKey") apiKey: String): Single<Response<MostPopularItem>>
 
-    @GET("CoomingSoon/{apiKey}")
+    @GET("ComingSoon/{apiKey}")
     fun getCoomingSoon(
         @Path("apiKey") apiKey: String): Single<Response<CoomingSoonItem>>
 

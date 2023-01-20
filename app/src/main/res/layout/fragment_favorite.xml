@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/tb_home"
+            android:id="@+id/tbHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
@@ -22,7 +22,7 @@
             app:tabTextColor="#ccc">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/etSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/dimen_10dp"
@@ -36,9 +36,10 @@
         </com.google.android.material.appbar.MaterialToolbar>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFavorite"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/tb_home"
+            app:layout_constraintTop_toBottomOf="@+id/tbHome"
             tools:layout_editor_absoluteX="0dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

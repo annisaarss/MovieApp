@@ -16,5 +16,5 @@ interface MovieUseCase {
 
     fun getBannerPopular(): Single<List<String>>
 
-    fun searchMovie(expression: String): Single<List<SearchDetail>>
+    fun searchMovie(expression: String): Single<List<MostPopularDetail>>
 }

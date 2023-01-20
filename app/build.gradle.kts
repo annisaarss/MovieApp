@@ -16,7 +16,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         buildConfigField("String", "BASE_URL", "\"https://imdb-api.com/en/API/\"")
-        buildConfigField("String", "API_KEY", "\"k_xf96oi73\"")
+        buildConfigField("String", "API_KEY", "\"k_mco7r6dy\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -74,4 +74,5 @@ dependencies {
     implementation("com.tbuonomo:dotsindicator:4.3")
 
     debugImplementation ("com.github.chuckerteam.chucker:library:3.5.2")
+
 }

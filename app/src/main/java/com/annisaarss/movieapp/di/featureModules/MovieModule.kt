@@ -7,8 +7,10 @@ import com.annisaarss.movieapp.data.movie.remote.MovieApiClient
 import com.annisaarss.movieapp.di.BASE_URL
 import com.annisaarss.movieapp.domain.movie.MovieInteractor
 import com.annisaarss.movieapp.domain.movie.MovieUseCase
+import com.annisaarss.movieapp.viewmodel.DetailViewModel
 import com.annisaarss.movieapp.viewmodel.PopularViewModel
 import com.annisaarss.movieapp.viewmodel.HomeViewModel
+import com.annisaarss.movieapp.viewmodel.SearchViewModel
 import com.nbs.nucleo.data.libs.ApiService
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -26,4 +28,8 @@ val movieModule = module {
     viewModel { PopularViewModel(get(), get()) }
 
     viewModel { HomeViewModel(get(), get()) }
+
+    viewModel { DetailViewModel(get(), get()) }
+
+    viewModel { SearchViewModel(get(), get()) }
 }

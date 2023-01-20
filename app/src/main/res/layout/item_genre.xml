@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/dimen_6dp"
+    android:maxWidth="@dimen/dimen_375dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvGenreMovie"
+        style="@style/Detail1TextStyle"
+        android:text="@string/sample_genre"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgOval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_oval"
+        android:layout_marginStart="@dimen/dimen_5dp"
+        app:layout_constraintStart_toEndOf="@id/tvGenreMovie"
+        app:layout_constraintTop_toTopOf="@id/tvGenreMovie"
+        app:layout_constraintBottom_toBottomOf="@id/tvGenreMovie"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

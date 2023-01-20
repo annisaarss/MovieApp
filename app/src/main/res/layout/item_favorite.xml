@@ -8,7 +8,7 @@
     android:background="@color/black_100">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_movie"
+        android:id="@+id/imgMovie"
         android:layout_width="@dimen/dimen_175dp"
         android:layout_height="@dimen/dimen_90dp"
         android:scaleType="fitXY"
@@ -17,37 +17,33 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_title_movie"
+        android:id="@+id/tvTitleMovie"
         style="@style/Title2TextStyle"
-        android:text="Itaewon Class"
         android:maxLines="1"
         android:maxWidth="@dimen/dimen_154dp"
         android:layout_marginStart="@dimen/dimen_10dp"
-        app:layout_constraintStart_toEndOf="@+id/img_movie"
-        app:layout_constraintTop_toTopOf="@+id/img_movie" />
+        app:layout_constraintStart_toEndOf="@+id/imgMovie"
+        app:layout_constraintTop_toTopOf="@+id/imgMovie" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_year_movie"
+        android:id="@+id/tvYearMovie"
         style="@style/Detail2TextStyle"
-        android:text="2020"
         android:layout_marginTop="@dimen/dimen_5dp"
-        android:layout_marginStart="@dimen/dimen_10dp"
-        app:layout_constraintStart_toEndOf="@+id/img_movie"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title_movie" />
+        app:layout_constraintStart_toStartOf="@+id/tvTitleMovie"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleMovie" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_genre_movie"
+        android:id="@+id/tvGenreMovie"
         style="@style/Detail2TextStyle"
         android:maxWidth="@dimen/dimen_169dp"
         android:maxLines="2"
-        android:text="Drama, Asian, Comedy, Series"
         android:layout_marginTop="@dimen/dimen_5dp"
         android:layout_marginStart="@dimen/dimen_10dp"
-        app:layout_constraintStart_toEndOf="@+id/img_movie"
-        app:layout_constraintTop_toBottomOf="@+id/tv_year_movie" />
+        app:layout_constraintStart_toStartOf="@+id/tvYearMovie"
+        app:layout_constraintTop_toBottomOf="@+id/tvYearMovie" />
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btn_favorite"
+        android:id="@+id/btnFavorite"
         android:contentDescription="Button Favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,5 +52,5 @@
         android:layout_marginEnd="@dimen/dimen_10dp"
         android:src="@drawable/ic_fav_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_title_movie" />
+        app:layout_constraintTop_toTopOf="@+id/tvTitleMovie" />
 </androidx.constraintlayout.widget.ConstraintLayout>

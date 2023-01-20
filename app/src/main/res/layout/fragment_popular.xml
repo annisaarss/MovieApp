@@ -54,6 +54,7 @@
                 android:layout_marginStart="@dimen/dimen_20dp"
                 android:text="@string/showing_result"/>
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvExpression"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Heading2TextStyle"
@@ -66,6 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="@dimen/dimen_6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
