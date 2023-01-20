@@ -11,7 +11,7 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/tb_home"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -21,27 +21,18 @@
             app:tabSelectedTextColor="@android:color/white"
             app:tabTextColor="#ccc">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textColor="@android:color/white"
-                android:textColorHint="@color/white_40">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_marginEnd="@dimen/dimen_15dp"
-                    android:drawableEnd="@drawable/ic_search_yellow"
-                    android:hint="Search Movie"
-                    android:imeOptions="actionNext"
-                    android:inputType="textEmailAddress|textNoSuggestions"
-                    android:minWidth="350dp"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@color/white"
-                    app:backgroundTint="@color/black_100" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginVertical="@dimen/dimen_10dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:hint="Search Movie"
+                android:textColor="@color/white_70"
+                android:backgroundTint="@color/white_12"
+                android:textColorHint="@color/white_70"
+                android:drawableEnd="@drawable/ic_search_yellow"
+                android:inputType="text"/>
         </com.google.android.material.appbar.MaterialToolbar>
 
         <androidx.recyclerview.widget.RecyclerView

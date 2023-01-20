@@ -5,56 +5,82 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.annisaarss.movieapp.R
+import com.annisaarss.movieapp.databinding.FragmentPopularBinding
+import com.annisaarss.movieapp.domain.movie.model.MostPopularDetail
+import com.annisaarss.movieapp.domain.movie.model.SearchDetail
+import com.annisaarss.movieapp.presentation.detail.DetailActivity
+import com.annisaarss.movieapp.presentation.popular.adapter.PopularMoviesAdapter
+import com.annisaarss.movieapp.viewmodel.HomeViewModel
+import com.annisaarss.movieapp.viewmodel.PopularViewModel
+import com.nbs.nucleo.data.Result
+import com.nbs.nucleo.utils.showToast
+import com.nbs.nucleosnucleo.presentation.viewbinding.NucleoFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class PopularFragment : NucleoFragment<FragmentPopularBinding>() {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PopularFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class PopularFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val popularViewModel: PopularViewModel by viewModel()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private val popularMoviesAdapter: PopularMoviesAdapter by lazy {
+        PopularMoviesAdapter(
+            context = requireActivity(),
+            items = mutableListOf(),
+            onItemClicked = {
+                OnItemMovieClicked(it)
+            }
+        )
+    }
+
+    override fun getViewBinding(
+        layoutInflater: LayoutInflater,
+        container: ViewGroup?,
+        attachToRoot: Boolean
+    ): FragmentPopularBinding {
+        return FragmentPopularBinding.inflate(layoutInflater, container, false)
+    }
+
+    override fun initIntent() {}
+
+    override fun initUI() {
+        binding.rvPopular.apply {
+            adapter = popularMoviesAdapter
+            layoutManager = GridLayoutManager(requireActivity(), 2)
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_popular, container, false)
+    override fun initAction() {}
+
+    override fun initProcess() {
+        popularViewModel.getMostPopular()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PopularFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PopularFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun initObservers() {
+        popularViewModel.listPopular.observe(this, Observer {
+            when (it) {
+                is Result.Loading -> {
+                    showLoading()
                 }
+
+                is Result.Success -> {
+                    hideLoading()
+                    popularMoviesAdapter.clear()
+                    popularMoviesAdapter.addOrUpdate(it.data)
+                }
+
+                is Result.Failure -> {
+                    hideLoading()
+                    showToast(it.message.toString())
+                }
+                else -> {}
             }
+        })
+    }
+
+    private fun OnItemMovieClicked(data : MostPopularDetail){
+        DetailActivity.start(requireActivity(), id = data.id, titleMovie = data.title)
     }
 }

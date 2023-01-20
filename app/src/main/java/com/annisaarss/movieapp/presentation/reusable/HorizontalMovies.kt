@@ -3,10 +3,17 @@ package com.annisaarss.movieapp.presentation.reusable
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.widget.Adapter
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.annisaarss.movieapp.R
+import com.annisaarss.movieapp.domain.movie.model.MostPopularDetail
+import com.annisaarss.movieapp.domain.movie.model.PosterDetail
+import com.annisaarss.movieapp.presentation.detail.DetailActivity
+import com.annisaarss.movieapp.presentation.reusable.adapter.HorizontalMoviesAdapter
+import com.nbs.nucleo.presentation.viewbinding.adapter.NucleoRecyclerAdapter
 
 class HorizontalMovies constructor(
     context: Context,
@@ -18,11 +25,21 @@ class HorizontalMovies constructor(
         bindView(view)
     }
 
+    private val horizontalMovieAdapter: HorizontalMoviesAdapter by lazy {
+        HorizontalMoviesAdapter(
+            context = context,
+            items = mutableListOf(),
+            onItemClicked = {
+                OnItemStoryClicked(it)
+            }
+        )
+    }
+
     private var tvKey: AppCompatTextView? = null
     private var rvMovie: RecyclerView? = null
 
     private var keyText: String? = null
-    private var listMovie: List<String>? = null
+    private var listMovie: List<PosterDetail>? = null
 
     private fun bindView(view: View) {
         tvKey = view.findViewById(R.id.tv_horizontal_movie)
@@ -34,8 +51,24 @@ class HorizontalMovies constructor(
         tvKey?.text = keyText
     }
 
-    fun setMovie(urlPhoto: List<String>){
-//        listMovie =
+    fun setMovie(posterList: List<PosterDetail>){
+        listMovie = posterList
+
+        rvMovie?.apply {
+            adapter = horizontalMovieAdapter
+            layoutManager = LinearLayoutManager(
+                context,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
+        }
+
+        horizontalMovieAdapter.clear()
+        horizontalMovieAdapter.addOrUpdate(listMovie)
+    }
+
+    private fun OnItemStoryClicked(data : PosterDetail){
+        DetailActivity.start(context, id = data.id, titleMovie = data.title)
     }
 
 }

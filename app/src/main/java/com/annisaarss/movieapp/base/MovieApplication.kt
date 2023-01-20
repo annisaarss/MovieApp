@@ -1,6 +1,8 @@
 package com.annisaarss.movieapp.base
 
 import com.annisaarss.movieapp.di.apiModule
+import com.annisaarss.movieapp.di.featureModules.movieModule
+import com.annisaarss.movieapp.di.preferenceModule
 import com.annisaarss.movieapp.di.rxModule
 import com.annisaarss.movieapp.di.utilityModule
 import com.nbs.nucleo.presentation.BaseApplication
@@ -19,7 +21,9 @@ class MovieApplication : BaseApplication() {
         return listOf(
             apiModule,
             rxModule,
-            utilityModule
+            utilityModule,
+            movieModule,
+            preferenceModule
         )
     }
 

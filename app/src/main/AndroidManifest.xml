@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.annisaarss.movieapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".base.MovieApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,7 +18,7 @@
         tools:targetApi="31">
         <activity
             android:name=".presentation.detail.DetailActivity"
-            android:exported="true" />
+            android:exported="false"/>
         <activity
             android:name=".presentation.NavigationActivity"
             android:exported="true">

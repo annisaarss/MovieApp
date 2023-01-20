@@ -15,7 +15,8 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-        buildConfigField("String", "BASE_URL", "\"https://developers.themoviedb.org/3\"")
+        buildConfigField("String", "BASE_URL", "\"https://imdb-api.com/en/API/\"")
+        buildConfigField("String", "API_KEY", "\"k_xf96oi73\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -71,4 +72,6 @@ dependencies {
     implementation ("androidx.navigation:navigation-ui-ktx:2.3.0")
 
     implementation("com.tbuonomo:dotsindicator:4.3")
+
+    debugImplementation ("com.github.chuckerteam.chucker:library:3.5.2")
 }

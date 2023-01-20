@@ -2,7 +2,7 @@
 <resources>
     <style name="WatchButtonStyle" parent="Widget.MaterialComponents.Button">
         <item name="android:layout_width">@dimen/dimen_160dp</item>
-        <item name="android:layout_height">@dimen/dimen_36dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingStart">@dimen/dimen_28dp</item>
         <item name="android:paddingEnd">@dimen/dimen_28dp</item>
         <item name="android:paddingTop">@dimen/dimen_10dp</item>
@@ -12,14 +12,14 @@
         <item name="android:fontFamily">@font/sfprotext</item>
         <item name="cornerRadius">@dimen/dimen_6dp</item>
         <item name="android:textAllCaps">false</item>
-        <item name="background">@color/yellow_100</item>
+        <item name="android:background">@color/yellow_100</item>
         <item name="drawableStartCompat">@drawable/ic_play_black</item>
         <item name="textFillColor">@color/black</item>
     </style>
 
     <style name="FavoriteButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">@dimen/dimen_160dp</item>
-        <item name="android:layout_height">@dimen/dimen_36dp</item>
         <item name="android:paddingStart">@dimen/dimen_28dp</item>
         <item name="android:paddingEnd">@dimen/dimen_28dp</item>
         <item name="android:paddingTop">@dimen/dimen_10dp</item>
@@ -37,7 +37,7 @@
 
     <style name="UnfavoriteButtonStyle" parent="Widget.MaterialComponents.Button">
         <item name="android:layout_width">@dimen/dimen_160dp</item>
-        <item name="android:layout_height">@dimen/dimen_36dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingStart">@dimen/dimen_28dp</item>
         <item name="android:paddingEnd">@dimen/dimen_28dp</item>
         <item name="android:paddingTop">@dimen/dimen_10dp</item>

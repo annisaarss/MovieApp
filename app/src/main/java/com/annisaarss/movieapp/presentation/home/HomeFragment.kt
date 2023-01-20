@@ -1,63 +1,110 @@
 package com.annisaarss.movieapp.presentation.home
 
-import android.content.Intent
-import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import com.annisaarss.movieapp.R
 import com.annisaarss.movieapp.databinding.FragmentHomeBinding
+import com.annisaarss.movieapp.domain.movie.model.MostPopularDetail
 import com.annisaarss.movieapp.presentation.detail.DetailActivity
+import com.annisaarss.movieapp.presentation.home.adapter.ViewPagerAdapter
+import com.annisaarss.movieapp.viewmodel.HomeViewModel
+import com.nbs.nucleo.data.Result
+import com.nbs.nucleo.utils.showToast
+import com.nbs.nucleosnucleo.presentation.viewbinding.NucleoFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class HomeFragment : NucleoFragment<FragmentHomeBinding>() {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val homeViewModel: HomeViewModel by viewModel()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private lateinit var viewPagerAdapter: ViewPagerAdapter
+
+    override fun getViewBinding(
+        layoutInflater: LayoutInflater,
+        container: ViewGroup?,
+        attachToRoot: Boolean
+    ): FragmentHomeBinding {
+        return FragmentHomeBinding.inflate(layoutInflater, container, false)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    override fun initIntent() {}
+
+    override fun initUI() {
+        binding.layoutPopular.setKeyText(getString(R.string.popular_movies))
+        binding.layoutCoomingSoon.setKeyText(getString(R.string.cooming_soon))
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun initAction() {}
+
+    override fun initProcess() {
+        homeViewModel.getPosterPopular()
+        homeViewModel.getBanner()
+//        posterPopularViewModel.getPosterCoomingSoon()
+    }
+
+    override fun initObservers() {
+        homeViewModel.listPosterPopular.observe(this, Observer {
+            when (it) {
+                is Result.Loading -> {
+                    showLoading()
                 }
+
+                is Result.Success -> {
+                    hideLoading()
+                    binding.layoutPopular.setMovie(it.data)
+                }
+
+                is Result.Failure -> {
+                    hideLoading()
+                    showToast(it.message.toString())
+                }
+                else -> {}
             }
+        })
+
+        homeViewModel.listBanner.observe(this, Observer {
+            when (it) {
+                is Result.Loading -> {
+                    showLoading()
+                }
+
+                is Result.Success -> {
+                    hideLoading()
+                    setBanner(it.data)
+                }
+
+                is Result.Failure -> {
+                    hideLoading()
+                    showToast(it.message.toString())
+                }
+                else -> {}
+            }
+        })
+
+//        posterPopularViewModel.listPosterCoomingSoon.observe(this, Observer {
+//            when (it) {
+//                is Result.Loading -> {
+//                    showLoading()
+//                }
+//
+//                is Result.Success -> {
+//                    hideLoading()
+//                    binding.layoutCoomingSoon.setMovie(it.data)
+//                }
+//
+//                is Result.Failure -> {
+//                    hideLoading()
+//                    showToast(it.message.toString())
+//                }
+//                else -> {}
+//            }
+//        })
+    }
+
+    private fun setBanner(banner : List<String>){
+        viewPagerAdapter = ViewPagerAdapter(requireActivity(), banner)
+        binding.vpSlider.adapter = viewPagerAdapter
+        binding.dotsIndicator.attachTo(binding.vpSlider)
     }
 }

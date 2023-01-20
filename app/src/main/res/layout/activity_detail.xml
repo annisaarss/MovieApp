@@ -7,6 +7,7 @@
     android:background="@color/black_100"
     android:fitsSystemWindows="true"
     tools:context=".presentation.detail.DetailActivity">
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:fitsSystemWindows="true">
         <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapseToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:contentScrim="@color/black_100"
@@ -38,7 +40,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:background="@color/black_40">
+
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTitleMovie"
                         style="@style/Title1TextStyle"
                         android:text="@string/sample_title"
                         android:maxWidth="@dimen/dimen_375dp"
@@ -48,61 +52,85 @@
                         app:layout_constraintStart_toStartOf="parent"/>
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_title_movie"
-                        style="@style/Title1TextStyle"
-                        android:text="@string/sample_title"
-                        android:maxWidth="@dimen/dimen_375dp"
-                        android:layout_marginStart="@dimen/dimen_20dp"
-                        android:layout_marginTop="@dimen/dimen_14dp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_duration_movie"
+                        android:id="@+id/tvDurationMovie"
                         style="@style/Detail1TextStyle"
                         android:text="@string/sample_duration"
                         android:maxWidth="@dimen/dimen_375dp"
                         android:layout_marginStart="@dimen/dimen_20dp"
                         android:layout_marginTop="@dimen/dimen_10dp"
-                        app:layout_constraintTop_toBottomOf="@id/tv_title_movie"
+                        app:layout_constraintTop_toBottomOf="@id/tvTitleMovie"
                         app:layout_constraintStart_toStartOf="parent"/>
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_hd_movie"
+                        android:id="@+id/tvHdMovie"
                         style="@style/Detail3TextStyle"
                         android:text="@string/hd"
+                        android:gravity="center"
+                        android:background="@drawable/bg_hd"
                         android:maxWidth="@dimen/dimen_375dp"
                         android:layout_marginStart="@dimen/dimen_10dp"
-                        app:layout_constraintTop_toTopOf="@id/tv_duration_movie"
-                        app:layout_constraintStart_toEndOf="@id/tv_duration_movie"/>
+                        app:layout_constraintBottom_toBottomOf="@id/tvDurationMovie"
+                        app:layout_constraintTop_toTopOf="@id/tvDurationMovie"
+                        app:layout_constraintStart_toEndOf="@id/tvDurationMovie"/>
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_genre_movie"
+                        android:id="@+id/tvGenreMovie"
                         style="@style/Detail1TextStyle"
                         android:text="@string/sample_genre"
                         android:maxWidth="@dimen/dimen_375dp"
                         android:layout_marginStart="@dimen/dimen_20dp"
                         android:layout_marginTop="@dimen/dimen_10dp"
-                        app:layout_constraintTop_toBottomOf="@id/tv_duration_movie"
+                        app:layout_constraintTop_toBottomOf="@id/tvDurationMovie"
                         app:layout_constraintStart_toStartOf="parent"/>
 
                     <LinearLayout
+                        android:layout_marginTop="@dimen/dimen_10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:weightSum="2"
                         android:orientation="horizontal"
                         android:layout_marginStart="@dimen/dimen_20dp"
                         android:layout_marginEnd="@dimen/dimen_20dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_genre_movie">
+                        app:layout_constraintTop_toBottomOf="@id/tvGenreMovie">
                         <com.google.android.material.button.MaterialButton
-                            style="@style/WatchButtonStyle"
+                            android:id="@+id/btnPlay"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_12sp"
+                            android:fontFamily="@font/sfprotext"
+                            app:cornerRadius="@dimen/dimen_6dp"
+                            android:textAllCaps="false"
+                            android:backgroundTint="@color/yellow_100"
+                            app:icon="@drawable/ic_play_outline"
+                            app:iconTint="@color/black"
+                            app:iconGravity="start"
+                            app:iconPadding="@dimen/dimen_4dp"
+                            android:textColor="@color/black"
                             android:text="@string/watch_trailer"
-                            android:layout_gravity="start"/>
+                            android:layout_marginEnd="@dimen/dimen_6dp"/>
                         <com.google.android.material.button.MaterialButton
-                            style="@style/FavoriteButtonStyle"
+                            android:id="@+id/btnFavorite"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_12sp"
+                            android:fontFamily="@font/sfprotext"
+                            app:cornerRadius="@dimen/dimen_6dp"
+                            android:textAllCaps="false"
+                            app:strokeWidth="@dimen/dimen_1dp"
+                            app:strokeColor="@color/white_12"
+                            android:backgroundTint="@color/black"
+                            app:icon="@drawable/ic_add_yellow"
+                            app:iconGravity="start"
+                            app:iconPadding="@dimen/dimen_4dp"
+                            android:textColor="@color/white"
                             android:text="@string/btn_favorite"
-                            android:layout_gravity="end"/>
+                            android:layout_marginStart="@dimen/dimen_6dp"/>
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -112,14 +140,15 @@
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="@string/sample_title"
                 app:layout_collapseMode="pin"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Dark">
                 <ImageButton
+                    android:id="@+id/btnBack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_back"
+                    android:background="@null"
                     android:contentDescription="this is button back"
                     />
 
@@ -143,15 +172,16 @@
             android:layout_marginTop="@dimen/dimen_20dp"
             android:layout_marginHorizontal="@dimen/dimen_20dp">
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_description_movie"
+                android:id="@+id/tvDescriptionMovie"
                 style="@style/Detail2TextStyle"
                 android:text="@string/sample_desc"/>
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_cast"
+                android:id="@+id/tvCast"
                 style="@style/Heading2TextStyle"
                 android:text="@string/cast"
                 android:layout_marginTop="@dimen/dimen_20dp"/>
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCast"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_15dp"/>

@@ -13,4 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="EditTextStyle">
+        <item name="colorControlNormal">@color/white_87</item>
+        <item name="colorControlActivated">@color/white_87</item>
+        <item name="colorControlHighlight">@color/white_87</item>
+    </style>
 </resources>
