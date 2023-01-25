@@ -6,7 +6,10 @@ import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
 
-class HeaderInterceptor(private val headers: HashMap<String, String>, private val preferenceManager: PreferenceManager) :
+class HeaderInterceptor(
+    private val headers: HashMap<String, String>,
+    private val preferenceManager: PreferenceManager
+) :
     Interceptor {
 
     @Throws(IOException::class)

@@ -10,7 +10,7 @@ import com.nbs.nucleo.utils.rx.apihandler.genericErrorHandler
 import com.nbs.nucleo.utils.rx.transformers.singleScheduler
 import io.reactivex.disposables.CompositeDisposable
 
-class HomeViewModel (
+class HomeViewModel(
     private val movieUseCase: MovieUseCase,
     disposable: CompositeDisposable
 ) : BaseViewModel(disposable) {
@@ -46,13 +46,13 @@ class HomeViewModel (
             }).addTo(disposable)
     }
 
-    fun getBanner(){
+    fun getBanner() {
         listBanner.value = Result.loading()
         movieUseCase.getBannerPopular()
             .compose(singleScheduler())
             .subscribe({
                 listBanner.value = Result.success(it)
-            },{
+            }, {
                 genericErrorHandler(it, listBanner)
             }).addTo(disposable)
     }

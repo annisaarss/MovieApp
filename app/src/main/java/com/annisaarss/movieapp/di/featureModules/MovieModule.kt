@@ -17,7 +17,13 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val movieModule = module {
-    single { ApiService.createReactiveService(MovieApiClient::class.java, get(), get(named(BASE_URL))) }
+    single {
+        ApiService.createReactiveService(
+            MovieApiClient::class.java,
+            get(),
+            get(named(BASE_URL))
+        )
+    }
 
     single { MovieApi(get()) }
 

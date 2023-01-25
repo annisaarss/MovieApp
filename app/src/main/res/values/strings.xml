@@ -25,4 +25,11 @@
     <string name="watch_trailer">Watch Trailer</string>
     <string name="btn_favorite">Add to Favorite</string>
     <string name="cast">Cast</string>
+    <string name="sample_year">2019</string>
+    <string name="sample_cast">Annisa Rosdiyana</string>
+    <string name="search_movie">Search Movie</string>
+    <string name="sample_casts">Dylan O\'Briyen, Kaya Scodalario. Will Pouter</string>
+    <string name="message_no_data">No Data Found</string>
+    <string name="message_delete">Delete Success</string>
+    <string name="message_add_favorite">Add Favorite success</string>
 </resources>

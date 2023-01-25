@@ -16,7 +16,10 @@ class PopularMoviesAdapter(
     private val context: Context,
     items: List<MostPopularDetail>,
     private val onItemClicked: ((MostPopularDetail) -> Unit)?
-) : NucleoRecyclerAdapter<MostPopularDetail, PopularMoviesAdapter.PopularViewHolder>(context, items) {
+) : NucleoRecyclerAdapter<MostPopularDetail, PopularMoviesAdapter.PopularViewHolder>(
+    context,
+    items
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularViewHolder =
         PopularViewHolder(

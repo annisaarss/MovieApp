@@ -1,10 +1,8 @@
 package com.annisaarss.movieapp.base
 
-import com.annisaarss.movieapp.di.apiModule
+import com.annisaarss.movieapp.di.*
+import com.annisaarss.movieapp.di.featureModules.favoriteModule
 import com.annisaarss.movieapp.di.featureModules.movieModule
-import com.annisaarss.movieapp.di.preferenceModule
-import com.annisaarss.movieapp.di.rxModule
-import com.annisaarss.movieapp.di.utilityModule
 import com.nbs.nucleo.presentation.BaseApplication
 import com.nbs.nucleo.utils.ContextProvider
 import com.nbs.nucleo.utils.ThemeManager
@@ -23,7 +21,9 @@ class MovieApplication : BaseApplication() {
             rxModule,
             utilityModule,
             movieModule,
-            preferenceModule
+            preferenceModule,
+            favoriteModule,
+            dbModule
         )
     }
 

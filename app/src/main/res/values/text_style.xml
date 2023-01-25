@@ -3,7 +3,6 @@
     <style name="Heading2TextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@fonts/sfprotext</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">@dimen/text_size_16sp</item>
         <item name="android:textStyle">bold</item>
@@ -12,7 +11,6 @@
     <style name="HintSearchTextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@fonts/sfprotext</item>
         <item name="android:textColor">@color/white_70</item>
         <item name="android:textSize">@dimen/text_size_16sp</item>
     </style>
@@ -20,7 +18,6 @@
     <style name="HeadingLightTextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@fonts/sfprotext</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/text_size_16sp</item>
     </style>
@@ -28,7 +25,6 @@
     <style name="Title1TextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@fonts/sfprotext</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/text_size_28sp</item>
     </style>
@@ -36,7 +32,6 @@
     <style name="Title2TextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@fonts/sfprotext</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/text_size_16sp</item>
     </style>
@@ -44,7 +39,6 @@
     <style name="Title3TextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@fonts/sfprotext</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/text_size_12sp</item>
     </style>
@@ -52,7 +46,6 @@
     <style name="ListCastTextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@fonts/sfprotext</item>
         <item name="android:textColor">@color/white_60</item>
         <item name="android:textSize">@dimen/text_size_10sp</item>
     </style>
@@ -60,7 +53,6 @@
     <style name="ListCategoryTextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@fonts/sfprotext</item>
         <item name="android:textColor">@color/white_40</item>
         <item name="android:textSize">@dimen/text_size_12sp</item>
     </style>
@@ -68,15 +60,13 @@
     <style name="Detail1TextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@fonts/sfprotext</item>
         <item name="android:textColor">@color/white_70</item>
         <item name="android:textSize">@dimen/text_size_12sp</item>
     </style>
 
     <style name="Detail2TextStyle">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@fonts/sfprotext</item>
         <item name="android:textColor">@color/white_70</item>
         <item name="android:textSize">@dimen/text_size_14sp</item>
     </style>
@@ -84,7 +74,6 @@
     <style name="Detail3TextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@fonts/sfprotext</item>
         <item name="android:textColor">@color/white_70</item>
         <item name="background">@drawable/bg_hd</item>
         <item name="android:textSize">@dimen/text_size_8sp</item>

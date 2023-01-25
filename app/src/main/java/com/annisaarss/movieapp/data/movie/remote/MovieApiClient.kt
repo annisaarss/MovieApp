@@ -13,11 +13,13 @@ import retrofit2.http.*
 interface MovieApiClient {
     @GET("MostPopularMovies/{apiKey}")
     fun getMostPopular(
-        @Path("apiKey") apiKey: String): Single<Response<MostPopularItem>>
+        @Path("apiKey") apiKey: String
+    ): Single<Response<MostPopularItem>>
 
     @GET("ComingSoon/{apiKey}")
     fun getCoomingSoon(
-        @Path("apiKey") apiKey: String): Single<Response<CoomingSoonItem>>
+        @Path("apiKey") apiKey: String
+    ): Single<Response<CoomingSoonItem>>
 
     @GET("Title/{apiKey}/{id}")
     fun getDetailMovie(

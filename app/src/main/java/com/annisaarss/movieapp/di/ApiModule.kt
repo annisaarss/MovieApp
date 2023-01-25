@@ -20,9 +20,11 @@ val apiModule = module {
 
     single {
         return@single OkHttpClientFactory.create(
-            interceptors = arrayOf(getHeaderInterceptor(get()), getParameterInterceptor(), ChuckerInterceptor(
-                ContextProvider.get()
-            )),
+            interceptors = arrayOf(
+                getHeaderInterceptor(get()), getParameterInterceptor(), ChuckerInterceptor(
+                    ContextProvider.get()
+                )
+            ),
             showDebugLog = BuildConfig.DEBUG,
             authenticator = null
         )

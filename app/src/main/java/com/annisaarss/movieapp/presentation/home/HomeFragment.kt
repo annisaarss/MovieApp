@@ -102,7 +102,7 @@ class HomeFragment : NucleoFragment<FragmentHomeBinding>() {
         })
     }
 
-    private fun setBanner(banner : List<String>){
+    private fun setBanner(banner: List<String>) {
         viewPagerAdapter = ViewPagerAdapter(requireActivity(), banner)
         binding.vpSlider.adapter = viewPagerAdapter
         binding.dotsIndicator.attachTo(binding.vpSlider)

@@ -21,7 +21,7 @@ class HorizontalMovies constructor(
 ) : LinearLayout(context, attrs) {
 
     init {
-        val view  = inflate(context, R.layout.layout_horizontal_movie, this)
+        val view = inflate(context, R.layout.layout_horizontal_movie, this)
         bindView(view)
     }
 
@@ -51,7 +51,7 @@ class HorizontalMovies constructor(
         tvKey?.text = keyText
     }
 
-    fun setMovie(posterList: List<PosterDetail>){
+    fun setMovie(posterList: List<PosterDetail>) {
         listMovie = posterList
 
         rvMovie?.apply {
@@ -67,8 +67,8 @@ class HorizontalMovies constructor(
         horizontalMovieAdapter.addOrUpdate(listMovie)
     }
 
-    private fun OnItemStoryClicked(data : PosterDetail){
-        DetailActivity.start(context, id = data.id, titleMovie = data.title)
+    private fun OnItemStoryClicked(data: PosterDetail) {
+        DetailActivity.start(context, idItem = data.id, titleMovie = data.title)
     }
 
 }

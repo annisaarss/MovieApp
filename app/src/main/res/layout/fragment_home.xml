@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black_100"
-    android:contentDescription="This is home fragment"
     tools:context="com.annisaarss.movieapp.presentation.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +41,6 @@
             android:id="@+id/vpSlider"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_260dp"
-            android:contentDescription="view pager for banner"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tabHome"

@@ -58,26 +58,22 @@ class PopularFragment : NucleoFragment<FragmentPopularBinding>() {
             adapter = popularMoviesAdapter
             layoutManager = GridLayoutManager(requireActivity(), 2)
         }
+    }
 
-        binding.etSearch.addTextChangedListener(object: TextWatcher {
+    override fun initAction() {
+        binding.etSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Do Nothing
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//                mArrayAdapter.filter.filter(s)
             }
 
             override fun afterTextChanged(s: Editable?) {
                 searchItem = s.toString()
                 searchViewModel.getResultSearch(searchItem)
-                setResultSearch()
             }
-
         })
     }
-
-    override fun initAction() {}
 
     override fun initProcess() {
         popularViewModel.getMostPopular()
@@ -103,13 +99,7 @@ class PopularFragment : NucleoFragment<FragmentPopularBinding>() {
                 else -> {}
             }
         })
-    }
 
-    private fun OnItemMovieClicked(data : MostPopularDetail){
-        DetailActivity.start(requireActivity(), id = data.id, titleMovie = data.title)
-    }
-
-    private fun setResultSearch(){
         searchViewModel.resultSearch.observe(this, Observer {
             when (it) {
                 is Result.Loading -> {
@@ -131,5 +121,9 @@ class PopularFragment : NucleoFragment<FragmentPopularBinding>() {
                 else -> {}
             }
         })
+    }
+
+    private fun OnItemMovieClicked(data: MostPopularDetail) {
+        DetailActivity.start(requireActivity(), idItem = data.id, titleMovie = data.title)
     }
 }

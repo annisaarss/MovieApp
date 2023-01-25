@@ -16,7 +16,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         buildConfigField("String", "BASE_URL", "\"https://imdb-api.com/en/API/\"")
-        buildConfigField("String", "API_KEY", "\"k_mco7r6dy\"")
+        buildConfigField("String", "API_KEY", "\"k_kwbavdp8\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -74,5 +74,14 @@ dependencies {
     implementation("com.tbuonomo:dotsindicator:4.3")
 
     debugImplementation ("com.github.chuckerteam.chucker:library:3.5.2")
+
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+    //room
+    implementation ("androidx.room:room-ktx:2.4.0-alpha03")
+    implementation ("androidx.room:room-runtime:2.4.0-alpha03")
+    implementation ("androidx.room:room-rxjava2:2.4.0-alpha03")
+    kapt ("androidx.lifecycle:lifecycle-compiler:2.4.0")
+    kapt ("androidx.room:room-compiler:2.4.0-alpha03")
 
 }

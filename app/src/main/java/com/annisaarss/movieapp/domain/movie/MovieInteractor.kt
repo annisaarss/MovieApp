@@ -5,7 +5,7 @@ import com.annisaarss.movieapp.domain.movie.model.*
 import com.nbs.utils.exts.isNull
 import io.reactivex.Single
 
-class MovieInteractor (private val repository: MovieRepository) : MovieUseCase {
+class MovieInteractor(private val repository: MovieRepository) : MovieUseCase {
     override fun getMostPopular(): Single<List<MostPopularDetail>> {
         return repository.getMostPopular().map {
             it.items?.map { data ->
@@ -16,7 +16,7 @@ class MovieInteractor (private val repository: MovieRepository) : MovieUseCase {
 
     override fun getCoomingSoon(): Single<List<CoomingSoonDetail>> {
         return repository.getCoomingSoon().map {
-            it.items?.map { data->
+            it.items?.map { data ->
                 data.mapToCoomingSoonDetail()
             }
         }
@@ -45,9 +45,9 @@ class MovieInteractor (private val repository: MovieRepository) : MovieUseCase {
     }
 
     override fun getBannerPopular(): Single<List<String>> {
-        return repository.getMostPopular().map{
-            it.items?.slice(1..5)?.map{
-               it.mapToImage()
+        return repository.getMostPopular().map {
+            it.items?.slice(1..5)?.map {
+                it.mapToImage()
             }
         }
     }

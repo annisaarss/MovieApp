@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -20,6 +19,7 @@
         android:id="@+id/tvTitleMovie"
         style="@style/Title2TextStyle"
         android:maxLines="1"
+        android:text="@string/sample_title"
         android:maxWidth="@dimen/dimen_154dp"
         android:layout_marginStart="@dimen/dimen_10dp"
         app:layout_constraintStart_toEndOf="@+id/imgMovie"
@@ -28,6 +28,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvYearMovie"
         style="@style/Detail2TextStyle"
+        android:text="@string/sample_year"
         android:layout_marginTop="@dimen/dimen_5dp"
         app:layout_constraintStart_toStartOf="@+id/tvTitleMovie"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleMovie" />
@@ -35,16 +36,15 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvGenreMovie"
         style="@style/Detail2TextStyle"
-        android:maxWidth="@dimen/dimen_169dp"
+        android:maxWidth="@dimen/dimen_180dp"
         android:maxLines="2"
+        android:text="@string/sample_genre"
         android:layout_marginTop="@dimen/dimen_5dp"
-        android:layout_marginStart="@dimen/dimen_10dp"
         app:layout_constraintStart_toStartOf="@+id/tvYearMovie"
-        app:layout_constraintTop_toBottomOf="@+id/tvYearMovie" />
+        app:layout_constraintTop_toBottomOf="@+id/tvYearMovie"/>
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnFavorite"
-        android:contentDescription="Button Favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
@@ -53,4 +53,6 @@
         android:src="@drawable/ic_fav_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvTitleMovie" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

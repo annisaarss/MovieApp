@@ -3,11 +3,11 @@ package com.annisaarss.movieapp.base
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class BaseViewModel(protected val disposable: CompositeDisposable): ViewModel(){
+abstract class BaseViewModel(protected val disposable: CompositeDisposable) : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        if (!disposable.isDisposed){
+        if (!disposable.isDisposed) {
             disposable.dispose()
         }
     }

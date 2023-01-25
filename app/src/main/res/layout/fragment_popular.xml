@@ -31,7 +31,7 @@
                 android:layout_marginHorizontal="@dimen/dimen_20dp"
                 android:backgroundTint="@color/white_12"
                 android:drawableEnd="@drawable/ic_search_yellow"
-                android:hint="Search Movie"
+                android:hint="@string/search_movie"
                 android:textColor="@color/white_70"
                 android:inputType="text"
                 android:textColorHint="@color/white_70"
@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Heading2TextStyle"
-                android:text="'Maze Runner'"
+                android:text="@string/sample_title"
                 android:layout_marginStart="5dp"/>
         </LinearLayout>
 

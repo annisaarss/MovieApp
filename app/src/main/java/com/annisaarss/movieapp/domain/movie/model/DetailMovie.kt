@@ -11,6 +11,7 @@ import com.nbs.utils.exts.orDefault
 data class DetailMovieDetail(
     val year: String = emptyString(),
     val genreList: List<GenreDetail> = emptyList(),
+    val genre: String = emptyString(),
     val title: String = emptyString(),
     val plot: String = emptyString(),
     val actorList: List<ActorDetail> = emptyList(),
@@ -38,6 +39,7 @@ fun DetailMovieItem.mapToDetailMovieDetail(): DetailMovieDetail =
         id = id.orEmpty(),
         image = image.orEmpty(),
         duration = duration.orEmpty(),
+        genre = genre.orEmpty(),
         actorList = actorList?.mapToListActorDetail().orEmpty(),
         genreList = genreList?.mapToListGenreDetail().orEmpty()
     )

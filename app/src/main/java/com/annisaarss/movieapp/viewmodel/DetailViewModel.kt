@@ -11,7 +11,7 @@ import com.nbs.nucleo.utils.rx.apihandler.genericErrorHandler
 import com.nbs.nucleo.utils.rx.transformers.singleScheduler
 import io.reactivex.disposables.CompositeDisposable
 
-class DetailViewModel (
+class DetailViewModel(
     private val movieUseCase: MovieUseCase,
     disposable: CompositeDisposable
 ) : BaseViewModel(disposable) {

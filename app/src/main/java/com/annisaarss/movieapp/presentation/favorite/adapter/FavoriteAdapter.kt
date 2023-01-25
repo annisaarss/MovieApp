@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.annisaarss.movieapp.databinding.ItemFavoriteBinding
 import com.annisaarss.movieapp.databinding.ItemPopularBinding
+import com.annisaarss.movieapp.domain.favorite.model.Favorite
 import com.annisaarss.movieapp.domain.movie.model.FavoriteDetail
 import com.annisaarss.movieapp.domain.movie.model.MostPopularDetail
 import com.nbs.nucleo.presentation.adapter.OnItemClickListener
@@ -16,8 +17,9 @@ import com.nbs.utils.exts.onClick
 
 class FavoriteAdapter(
     private val context: Context,
-    items: List<FavoriteDetail>
-) : NucleoRecyclerAdapter<FavoriteDetail, FavoriteAdapter.FavoriteViewHolder>(context, items) {
+    items: List<Favorite>,
+    private val onItemClicked: ((Favorite) -> Unit)?
+) : NucleoRecyclerAdapter<Favorite, FavoriteAdapter.FavoriteViewHolder>(context, items) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder =
         FavoriteViewHolder(
@@ -28,16 +30,21 @@ class FavoriteAdapter(
 
     inner class FavoriteViewHolder(
         mContext: Context, binding: ViewBinding, mItemClickListener: OnItemClickListener?
-    ) : NucleoItemViewHolder<FavoriteDetail>(
+    ) : NucleoItemViewHolder<Favorite>(
         mContext, binding, mItemClickListener, null
     ) {
 
-        override fun bind(data: FavoriteDetail) {
+        override fun bind(data: Favorite) {
             with(binding as ItemFavoriteBinding) {
                 imgMovie.setImageUrl(context, data.image)
                 tvTitleMovie.text = data.title
                 tvGenreMovie.text = data.genre
                 tvYearMovie.text = data.year
+                btnFavorite.onClick {
+                    onItemClicked?.apply {
+                        invoke(data)
+                    }
+                }
             }
         }
     }
